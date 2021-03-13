@@ -2,8 +2,7 @@ import React,{useState} from 'react';
 
 
 const Search = () => {
-
-    const[term,setTerm]= useState('hi');
+    const[term,setTerm]= useState('');
 
     const termSubmit = (e)=> {
         setTerm(e.target.value)
