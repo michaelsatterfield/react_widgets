@@ -2,11 +2,12 @@ import React,{useState} from 'react';
 
 
 const Search = () => {
-    const[term,setTerm]= useState('');
+    const[term,setTerm]= useState('Search for Somethinggit ');
 
     const termSubmit = (e)=> {
         setTerm(e.target.value)
     }
+
 
     return (
        <div>
