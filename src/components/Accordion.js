@@ -1,5 +1,5 @@
 // useState is a hook, from the react library*
-import React,{useState} from 'react';
+import React,{useState, } from 'react';
 
 
 const Accordion = ({items}) => {

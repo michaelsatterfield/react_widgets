@@ -1,27 +1,36 @@
-import React,{useState} from 'react';
-
+import React, {useState, useEffect} from 'react';
+import axios from "axios";
 
 const Search = () => {
-    const[term,setTerm]= useState('Search for Somethinggit ');
+    const [term, setTerm] = useState('Search for Something ');
 
-    const termSubmit = (e)=> {
+
+    useEffect(() => {
+        const search = () => {
+
+        };
+
+
+    }, [term]);
+
+    const termSubmit = (e) => {
         setTerm(e.target.value)
     }
 
 
     return (
-       <div>
-          <div className={"ui form"}>
-              <div className={"field"}>
-                  <label>Enter search Term</label>
-                  <input className={"input"}
-                         type={'text'}
-                         value={term}
-                         onChange={termSubmit}
-                  />
-              </div>
-          </div>
-       </div>
+        <div>
+            <div className={"ui form"}>
+                <div className={"field"}>
+                    <label>Enter search Term</label>
+                    <input className={"input"}
+                           type={'text'}
+                           value={term}
+                           onChange={termSubmit}
+                    />
+                </div>
+            </div>
+        </div>
 
     );
 };
