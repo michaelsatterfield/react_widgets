@@ -6,27 +6,38 @@ const Search = () => {
     const [results, setResults] = useState([]);
 
 
-
-    //axios api call..async and await go inside the function of a useEffect, not part of it
+    //axios api call..async and await go inside the function of a useEffect hook, not part of it
     useEffect(() => {
         const search = async () => {
             const {data} = await axios.get('https://en.wikipedia.org/w/api.php', {
-               params: {
-                   action: 'query',
-                   list: 'search',
-                   origin: '*',
-                   format: 'json',
-                   srsearch: term
-               }
+                params: {
+                    action: 'query',
+                    list: 'search',
+                    origin: '*',
+                    format: 'json',
+                    srsearch: term
+                }
             })
 
             setResults(data.query.search);
         };
-
-        if (term){
+        if (term && !results.length){
             search();
+        }else{
+
+
+        const timeoutId = setTimeout(() => {
+            if (term) {
+                search();
+
+            }
+        }, 700)
+        //built in to useEffect hook; cleanup function by adding a return function, kinda like a while loop
+        return () => {
+            clearTimeout(timeoutId);
         }
-    }, [term]);
+    }}, [term]);
+
 
     const termSubmit = (e) => {
         setTerm(e.target.value)
