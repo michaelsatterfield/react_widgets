@@ -8,7 +8,7 @@ const renderedOptions = options.map((option) => {
             {option.label}
         </div>
     )
-    })
+    });
 
 
     return<h1>{renderedOptions}</h1>
